@@ -1,0 +1,20 @@
+.table-view .column-header .label {
+  -fx-font-family: "Times New Roman";
+  -fx-font-size:18;
+  -fx-text-fill: black;
+  -fx-font-weight: bold;
+}
+
+.table-view:focused {
+  -fx-background-color: -fx-box-border,-fx-control-inner-background;
+}
+
+#banglaCol {
+  -fx-font-family: "Siyam Rupali";
+  -fx-font-size:14;
+}
+
+#englishCol {
+  -fx-font-family: "Times New Roman";
+  -fx-font-size:18;
+}

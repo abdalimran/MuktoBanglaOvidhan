@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_mukto_bangla_ovidhan_lite" default="compile.module.mukto_bangla_ovidhan_lite">
+  <dirname property="module.mukto_bangla_ovidhan_lite.basedir" file="${ant.file.module_mukto_bangla_ovidhan_lite}"/>
+  
+  <property name="module.jdk.home.mukto_bangla_ovidhan_lite" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.mukto_bangla_ovidhan_lite" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.mukto_bangla_ovidhan_lite" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.mukto_bangla_ovidhan_lite" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="mukto_bangla_ovidhan_lite.output.dir" value="${module.mukto_bangla_ovidhan_lite.basedir}/out/production/Mukto Bangla Ovidhan Lite"/>
+  <property name="mukto_bangla_ovidhan_lite.testoutput.dir" value="${module.mukto_bangla_ovidhan_lite.basedir}/out/test/Mukto Bangla Ovidhan Lite"/>
+  
+  <path id="mukto_bangla_ovidhan_lite.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="mukto_bangla_ovidhan_lite.module.production.classpath">
+    <path refid="${module.jdk.classpath.mukto_bangla_ovidhan_lite}"/>
+    <path refid="library.sqlite-jdbc-3.8.11.2.classpath"/>
+  </path>
+  
+  <path id="mukto_bangla_ovidhan_lite.runtime.production.module.classpath">
+    <pathelement location="${mukto_bangla_ovidhan_lite.output.dir}"/>
+    <path refid="library.sqlite-jdbc-3.8.11.2.classpath"/>
+  </path>
+  
+  <path id="mukto_bangla_ovidhan_lite.module.classpath">
+    <path refid="${module.jdk.classpath.mukto_bangla_ovidhan_lite}"/>
+    <pathelement location="${mukto_bangla_ovidhan_lite.output.dir}"/>
+    <path refid="library.sqlite-jdbc-3.8.11.2.classpath"/>
+  </path>
+  
+  <path id="mukto_bangla_ovidhan_lite.runtime.module.classpath">
+    <pathelement location="${mukto_bangla_ovidhan_lite.testoutput.dir}"/>
+    <pathelement location="${mukto_bangla_ovidhan_lite.output.dir}"/>
+    <path refid="library.sqlite-jdbc-3.8.11.2.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.mukto_bangla_ovidhan_lite">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.mukto_bangla_ovidhan_lite">
+    <patternset refid="excluded.from.module.mukto_bangla_ovidhan_lite"/>
+  </patternset>
+  
+  <path id="mukto_bangla_ovidhan_lite.module.sourcepath">
+    <dirset dir="${module.mukto_bangla_ovidhan_lite.basedir}">
+      <include name="src"/>
+      <include name="resource"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.mukto_bangla_ovidhan_lite" depends="compile.module.mukto_bangla_ovidhan_lite.production,compile.module.mukto_bangla_ovidhan_lite.tests" description="Compile module Mukto Bangla Ovidhan Lite"/>
+  
+  <target name="compile.module.mukto_bangla_ovidhan_lite.production" depends="register.custom.compilers" description="Compile module Mukto Bangla Ovidhan Lite; production classes">
+    <mkdir dir="${mukto_bangla_ovidhan_lite.output.dir}"/>
+    <javac2 destdir="${mukto_bangla_ovidhan_lite.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.mukto_bangla_ovidhan_lite}/javac">
+      <compilerarg line="${compiler.args.mukto_bangla_ovidhan_lite}"/>
+      <bootclasspath refid="mukto_bangla_ovidhan_lite.module.bootclasspath"/>
+      <classpath refid="mukto_bangla_ovidhan_lite.module.production.classpath"/>
+      <src refid="mukto_bangla_ovidhan_lite.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.mukto_bangla_ovidhan_lite"/>
+    </javac2>
+    
+    <copy todir="${mukto_bangla_ovidhan_lite.output.dir}">
+      <fileset dir="${module.mukto_bangla_ovidhan_lite.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.mukto_bangla_ovidhan_lite.basedir}/resource">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.mukto_bangla_ovidhan_lite.tests" depends="register.custom.compilers,compile.module.mukto_bangla_ovidhan_lite.production" description="compile module Mukto Bangla Ovidhan Lite; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.mukto_bangla_ovidhan_lite" description="cleanup module">
+    <delete dir="${mukto_bangla_ovidhan_lite.output.dir}"/>
+    <delete dir="${mukto_bangla_ovidhan_lite.testoutput.dir}"/>
+  </target>
+</project>

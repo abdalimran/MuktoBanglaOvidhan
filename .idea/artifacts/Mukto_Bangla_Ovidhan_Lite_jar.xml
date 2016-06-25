@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Mukto Bangla Ovidhan Lite:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Mukto_Bangla_Ovidhan_Lite_jar</output-path>
+    <root id="archive" name="Mukto Bangla Ovidhan Lite.jar">
+      <element id="module-output" name="Mukto Bangla Ovidhan Lite" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/sqlite-jdbc-3.8.11.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
